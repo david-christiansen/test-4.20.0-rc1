@@ -10,6 +10,11 @@ jobs:
   build:
     strategy:
       matrix:
+        toolchain:
+          - v4.20.0-rc1
+          - nightly-2025-05-01
+          - nightly-2025-04-30
+          - nightly-2025-04-29
         os:
           - ubuntu-latest
           - macos-latest
@@ -18,4 +23,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Select Lean version
+        run: |
+          echo "leanprover/lean4:${{ matrix.toolchain }}" > lean-toolchain
+
       - uses: leanprover/lean-action@v1
