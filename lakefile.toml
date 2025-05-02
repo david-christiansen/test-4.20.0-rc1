@@ -1,0 +1,10 @@
+name = "test-bitvec"
+version = "0.1.0"
+defaultTargets = ["test-bitvec"]
+
+[[lean_lib]]
+name = "TestBitvec"
+
+[[lean_exe]]
+name = "test-bitvec"
+root = "Main"
